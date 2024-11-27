@@ -58,6 +58,53 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script language="javascript" type="text/javascript">
+        function validar() {
+    var nome = contato.nome.value;
+    var email = contato.email.value;
+    var nota = contato.nota.value;
+    var mensagem = contato.message.value;
+    
+    // Validação do nome
+    if (nome == "") {
+        alert('Preencha esse campo com seu nome!');
+        contato.nome.focus();
+        return false;
+    }
+    if (nome.length < 3) {
+        alert('Preencha esse campo com seu nome completo!');
+        contato.nome.focus();
+        return false;
+    }
+
+    // Validação do e-mail (expressão regular)
+    if (email == "") {
+        alert('Preencha esse campo com seu email!');
+        contato.email.focus();
+        return false;
+    }
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(email)) {
+        alert('Por favor, insira um email válido!');
+        contato.email.focus();
+        return false;
+    }
+
+    // Validação da nota
+    if (nota == "") {
+        alert('Dê sua nota sobre o site!');
+        contato.nota.focus();
+        return false;
+    }
+
+    // Se tudo estiver válido, exibe mensagem de sucesso
+    alert("Dados enviados com sucesso!");
+    contato.reset(); // Limpa os campos do formulário
+    return true;
+}
+//FIM FUNÇÃO
+        
+    </script>
 
 	</head>
 	<body>
@@ -108,51 +155,52 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Don't be shy, let's chat.</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae enim quae vitae cupiditate, sequi quam ea id dolor reiciendis consectetur repudiandae. Rem quam, repellendus veniam ipsa fuga maxime odio? Eaque!</p>
-					<p><a href="mailto:info@yourdomainname.com" class="btn btn-primary btn-outline">Contact Us</a></p>
+					<h2>Mande-nos um email</h2>
+					<p>Fazemos orçamentos e pedidos através do email, compare os nossos preços e a nossa qualidade de serviço com as outras empresas, não tem outra igual a MoonDrones. </p>
+					<p><a href="mailto:furlanalyf@gmail.com" class="btn btn-primary btn-outline">Nosso email</a></p>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
-					<form action="#" id="form-wrap">
+					<form name="contato" onsubmit="return validar()">
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label for="name">Nome</label>
-								<input type="text" class="form-control" id="name">
+								<label for="nome">Nome</label>
+								<input type="text" class="form-control" id="nome" name="nome">
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="email">Email</label>
-								<input type="text" class="form-control" id="email">
+								<input type="text" class="form-control" id="email" name="email">
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label for="nota">Nota</label>								
-								<select class="form-control">
-									<option value="volvo">Volvo</option>
-									<option value="saab">Saab</option>
-									<option value="fiat">Fiat</option>
-									<option value="audi">Audi</option>
-								  </select>
+								<label for="nota">Nota</label>                                 
+								<select class="form-control" name="nota">
+									<option value=""></option>
+									<option value="1">★☆☆☆☆</option>
+									<option value="2">★★☆☆☆</option>
+									<option value="3">★★★☆☆</option>
+									<option value="4">★★★★☆</option>
+									<option value="5">★★★★★</option>
+								</select>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="message">Deixe aqui o seu comentário</label>
-								<textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
-								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Submit Form">
+								<input type="submit" class="btn btn-primary btn-outline btn-lg" value="Enviar">
 							</div>
 						</div>
-
-					</form>
+					</form>					
 				</div>
 			</div>
 
@@ -163,19 +211,21 @@
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget">
-					<h4>Tasty</h4>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+					<h4>Quem somos</h4>
+					<p>Apaixonados por tecnologia.<br> Especialistas em reparo e manutenção de drones.</p>
 				</div>
 				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Links</h4>
+					<h4>Páginas</h4>
 					<ul class="fh5co-footer-links">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">About</a></li>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">Sobre</a></li>
+						<li class="has-dropdown"><a href="gallery.html">Galeria</a></li>
+						<li><a href="reservation.html">Serviços</a></li>
+						<li><a href="menu.html">Produtos</a></li>
+						<li><a href="contact.html">Contato</a></li>
 					</ul>
 				</div>
-
+				<!--
 				<div class="col-md-2 col-md-push-1 fh5co-widget">
 					<h4>Categories</h4>
 					<ul class="fh5co-footer-links">
@@ -186,14 +236,13 @@
 						<li><a href="#">e-Commerce</a></li>
 					</ul>
 				</div>
-
+			-->
 				<div class="col-md-4 col-md-push-1 fh5co-widget">
-					<h4>Contact Information</h4>
+					<h4>Informações para contato</h4>
 					<ul class="fh5co-footer-links">
-						<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-						<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-						<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-						<li><a href="http://https://freehtml5.co">freehtml5.co</a></li>
+						<li>Av. Duque de Caxias, 281 - Jardim Joao Paulo II, Sumaré - SP, 13172-675</li>
+						<li><a href="tel://1234567920">(19)98870-0658</a></li>
+						<li><a href="mailto:info@yoursite.com">contato@moondrones.com.br</a></li>
 					</ul>
 				</div>
 
@@ -202,9 +251,11 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+						<small class="block">Alyf Furlan 2024 - &copy; Todos os direitos reservados</small> 
+						<small class="block">Trabalho acadêmico sem fins lucrativos</small> 
+						<small class="block">Designed by <a href="#">Alyf Furlan</a></small>
 					</p>
+					<!--
 					<p>
 						<ul class="fh5co-social-icons">
 							<li><a href="#"><i class="icon-twitter2"></i></a></li>
@@ -213,6 +264,7 @@
 							<li><a href="#"><i class="icon-dribbble2"></i></a></li>
 						</ul>
 					</p>
+				-->
 				</div>
 			</div>
 
@@ -238,22 +290,6 @@
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	<script src="plugins/animejs/lib/anime.min.js"></script>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="styles/bootstrap-4.1.2/popper.js"></script>
-	<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
-	<script src="plugins/greensock/TweenMax.min.js"></script>
-	<script src="plugins/greensock/TimelineMax.min.js"></script>
-	<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="plugins/greensock/animation.gsap.min.js"></script>
-	<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-	<script src="plugins/easing/easing.js"></script>
-	<script src="plugins/progressbar/progressbar.min.js"></script>
-	<script src="plugins/parallax-js-master/parallax.min.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/script.js"></script>
 
 	</body>
 </html>
-

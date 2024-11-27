@@ -1745,7 +1745,7 @@ option{
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
   overflow: auto;
 }
 
