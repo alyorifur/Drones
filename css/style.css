@@ -461,7 +461,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-about .img-wrap img {
-  margin-bottom: 30px;
+  margin: 0px 430px;
 }
 @media screen and (max-width: 992px) {
   #fh5co-about .img-wrap img {
